@@ -1,0 +1,28 @@
+[project]
+name = "giruff"
+version = "0.1.0"
+description = "Linter for your Jira and GitLab"
+authors = [
+    {name = "hxmn", email = "me@hxmv.dev"},
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jira>=3.8.0",
+    "keyring>=25.6.0",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "python-gitlab>=6.0.0",
+]
+
+[project.scripts]
+giruff = "giruff:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
