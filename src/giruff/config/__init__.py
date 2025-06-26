@@ -4,6 +4,7 @@ import tomllib
 from getpass import getpass
 from pathlib import Path
 
+from pydantic import Field
 from pydantic_settings import BaseSettings
 
 logger = logging.getLogger(__name__)
@@ -23,6 +24,23 @@ class Config(BaseSettings):
 
     gitlab_url: str | None = None
     gitlab_token: str | None = None
+
+    notify: bool = Field(
+        default=False,
+        description="Whether to notify users about changes made during formatting.")
+
+    raw_config: dict = Field(default_factory=dict)
+
+    def get_config_dict(self, prefix: str) -> dict:
+        """
+        Get rule configuration dictionary by a specific prefix.
+        :param prefix:
+        :return:
+        """
+        for key, value in self.raw_config.items():
+            if key.startswith(prefix):
+                return self.raw_config.get(key, {})
+        return {}
 
 
 def validate_config_dict(config_dict: dict) -> None:
@@ -76,20 +94,23 @@ def append_jira_auth_info(config: Config):
         # let's look into LOCAL_CONFIG_FILE for jira user
         if config.jira_user is None:
             if LOCAL_CONFIG_FILE.exists():
-                config_dict = tomllib.loads(LOCAL_CONFIG_FILE.read_text(encoding="utf8"))
-                config.jira_user = config_dict.get(f"{config.company.lower()}_jira_user")
+                config_dict = tomllib.loads(
+                    LOCAL_CONFIG_FILE.read_text(encoding="utf8")
+                )
+                config.jira_user = config_dict.get(
+                    f"{config.company.lower()}_jira_user"
+                )
 
         if config.jira_user is None:
             # let's ask user for jira user
             config.jira_user = input(f"Enter JIRA user for {config.company}: ").strip()
             LOCAL_CONFIG_FILE.write_text(
                 data=f"{config.company.lower()}_jira_user = '{config.jira_user}'\n",
-                encoding="utf8"
+                encoding="utf8",
             )
 
         jira_token_keyring = keyring.get_password(
-            service_name=f"{config.company.lower()}-jira",
-            username=config.jira_user
+            service_name=f"{config.company.lower()}-jira", username=config.jira_user
         )
         if jira_token_keyring is not None:
             config.jira_token = jira_token_keyring
@@ -97,17 +118,20 @@ def append_jira_auth_info(config: Config):
             return
         else:
             # ask user for jira token
-            config.jira_token = getpass(f"Enter JIRA token for {config.jira_user}: ").strip()
+            config.jira_token = getpass(
+                f"Enter JIRA token for {config.jira_user}: "
+            ).strip()
             keyring.set_password(
                 service_name=f"{config.company.lower()}-jira",
                 username=config.jira_user,
-                password=config.jira_token
+                password=config.jira_token,
             )
     except ImportError:
         logger.error("Keyring module is not installed. Cannot load JIRA credentials.")
 
     if config.jira_token is None:
         raise ValueError("JIRA token is not set. Please raise an issue.")
+
 
 def append_gitlab_auth_info(config: Config):
     """
@@ -135,8 +159,7 @@ def append_gitlab_auth_info(config: Config):
         import keyring
 
         gitlab_token_keyring = keyring.get_password(
-            service_name=f"{config.company.lower()}-gitlab",
-            username=config.gitlab_url
+            service_name=f"{config.company.lower()}-gitlab", username=config.gitlab_url
         )
         if gitlab_token_keyring is not None:
             config.gitlab_token = gitlab_token_keyring
@@ -144,17 +167,20 @@ def append_gitlab_auth_info(config: Config):
             return
         else:
             # ask user for gitlab token
-            config.gitlab_token = getpass(f"Enter GitLab token for {config.company}: ").strip()
+            config.gitlab_token = getpass(
+                f"Enter GitLab token for {config.company}: "
+            ).strip()
             keyring.set_password(
                 service_name=f"{config.company.lower()}-gitlab",
                 username=config.gitlab_url,
-                password=config.gitlab_token
+                password=config.gitlab_token,
             )
     except ImportError:
         logger.error("Keyring module is not installed. Cannot load GitLab credentials.")
 
     if config.gitlab_token is None:
         raise ValueError("GitLab token is not set. Please raise an issue.")
+
 
 def load_config(config_path: Path) -> Config:
     """
@@ -174,6 +200,7 @@ def load_config(config_path: Path) -> Config:
         jira_url=config_dict.get("jira_url", None),
         gitlab_url=config_dict.get("gitlab_url", None),
     )
+    config.raw_config = config_dict
     append_jira_auth_info(config)
     append_gitlab_auth_info(config)
     return config

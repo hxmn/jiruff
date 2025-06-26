@@ -6,8 +6,8 @@ from giruff.base.services import JiraService
 
 logger = logging.getLogger(__name__)
 
-class CloudJiraService(JiraService):
 
+class CloudJiraService(JiraService):
     def __init__(self):
         self.jira: JIRA | None = None
 
@@ -24,15 +24,10 @@ class CloudJiraService(JiraService):
         if self.jira:
             return
 
-        self.jira = JIRA(
-            server=url,
-            basic_auth=(username, token)
-        )
+        self.jira = JIRA(server=url, basic_auth=(username, token))
 
     def get_all_issues_by_jql(self, jql: str):
         return self.jira.search_issues(jql_str=jql, maxResults=0)
 
     def get_all_children(self, key: str):
         return self.get_all_issues_by_jql(f"parent = {key}")
-
-

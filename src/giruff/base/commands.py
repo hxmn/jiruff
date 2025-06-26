@@ -5,6 +5,7 @@ class BaseCommandHandler(abc.ABC):
     """
     Base class for command handlers.
     """
+
     command_name: str = "{command_name}"
     command_description: str = "{command_description}"
 
