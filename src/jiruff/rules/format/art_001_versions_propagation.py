@@ -4,7 +4,7 @@ from typing import Literal
 from pydantic import BaseModel
 from pydantic import Field
 
-from giruff.base.services import JiraService
+from jiruff.base.services import JiraService
 
 logger = logging.getLogger(__name__)
 

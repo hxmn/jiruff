@@ -1,4 +1,4 @@
-**giruff** is the linter that helps you to maintain your software development process. It
+**jiruff** is the linter that helps you to maintain your software development process. It
 integrates with GitLab and Jira to check and format issues, merge requests, and other items of your
 workflow.
 

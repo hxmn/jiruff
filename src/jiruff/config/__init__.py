@@ -9,7 +9,7 @@ from pydantic_settings import BaseSettings
 
 logger = logging.getLogger(__name__)
 
-LOCAL_CONFIG_FILE = Path.home() / ".config/giruff/config.toml"
+LOCAL_CONFIG_FILE = Path.home() / ".config/jiruff/config.toml"
 if not LOCAL_CONFIG_FILE.exists():
     LOCAL_CONFIG_FILE.parent.mkdir(parents=True, exist_ok=True)
     LOCAL_CONFIG_FILE.touch()

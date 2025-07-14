@@ -2,7 +2,7 @@ import logging
 
 from jira import JIRA
 
-from giruff.base.services import JiraService
+from jiruff.base.services import JiraService
 
 logger = logging.getLogger(__name__)
 

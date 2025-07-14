@@ -2,13 +2,13 @@ import argparse
 import sys
 from argparse import Namespace
 
-from giruff.commands.check import CheckCommand
-from giruff.commands.format import FormatCommand
+from jiruff.commands.check import CheckCommand
+from jiruff.commands.format import FormatCommand
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="giruff: linter for your GitLab and Jira"
+        description="jiruff: linter for your GitLab and Jira"
     )
 
     subparsers = parser.add_subparsers(

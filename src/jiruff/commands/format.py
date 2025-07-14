@@ -2,13 +2,13 @@ from argparse import Namespace
 from pathlib import Path
 from typing import Literal
 
-from giruff.base.commands import BaseCommandHandler
-from giruff.config import Config
-from giruff.config import load_config
-from giruff.rules.format.art_001_versions_propagation import (
+from jiruff.base.commands import BaseCommandHandler
+from jiruff.config import Config
+from jiruff.config import load_config
+from jiruff.rules.format.art_001_versions_propagation import (
     FormatArt001VersionPropagation,
 )
-from giruff.services.jira import CloudJiraService
+from jiruff.services.jira import CloudJiraService
 
 
 class FormatCommand(BaseCommandHandler):

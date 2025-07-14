@@ -1,4 +1,4 @@
-from giruff.base.commands import BaseCommandHandler
+from jiruff.base.commands import BaseCommandHandler
 
 
 class CheckCommand(BaseCommandHandler):

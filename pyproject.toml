@@ -1,5 +1,5 @@
 [project]
-name = "giruff"
+name = "jiruff"
 version = "0.1.0"
 description = "Linter for your Jira and GitLab"
 authors = [
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-giruff = "giruff:main"
+jiruff = "jiruff:main"
 
 [dependency-groups]
 dev = [
