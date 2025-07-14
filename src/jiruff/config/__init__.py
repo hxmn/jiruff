@@ -182,15 +182,20 @@ def append_gitlab_auth_info(config: Config):
         raise ValueError("GitLab token is not set. Please raise an issue.")
 
 
-def load_config(config_path: Path) -> Config:
+def load_config(config_path: Path | None = None) -> Config:
     """
     Load configuration from a TOML file.
 
     :param config_path: Path to the configuration file.
     :return: Config object with loaded settings.
     """
+    if config_path is None:
+        config_path = LOCAL_CONFIG_FILE
+
     if not config_path.exists():
         raise FileNotFoundError(f"Configuration file '{config_path}' not found.")
+
+    logger.debug(f"Loading configuration from {config_path}")
 
     config_dict = tomllib.loads(config_path.read_text(encoding="utf8"))
     validate_config_dict(config_dict)

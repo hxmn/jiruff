@@ -39,6 +39,8 @@ class FormatCommand(BaseCommandHandler):
                 raise FileNotFoundError(
                     f"Configuration file '{config_path}' not found."
                 )
+        else:
+            self.config = load_config()
 
         jira_service = CloudJiraService()
         jira_service.auth(
