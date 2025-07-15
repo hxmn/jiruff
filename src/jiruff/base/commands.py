@@ -1,4 +1,11 @@
 import abc
+from argparse import Namespace
+from pathlib import Path
+
+from jiruff.base.services import JiraService
+from jiruff.config import Config
+from jiruff.config import load_config
+from jiruff.services.jira import CloudJiraService
 
 
 class BaseCommandHandler(abc.ABC):
@@ -8,6 +15,38 @@ class BaseCommandHandler(abc.ABC):
 
     command_name: str = "{command_name}"
     command_description: str = "{command_description}"
+
+    def __init__(self):
+        super().__init__()
+        self.config: Config | None = None
+        self.jira: JiraService | None = None
+
+    def _load_config(self, args: Namespace) -> None:
+        """
+        Load configuration from command line arguments.
+        This logic is common among all command handlers.
+
+        :param args: Command line arguments.
+        """
+        if hasattr(args, "config") and args.config:
+            config_path = Path(args.config)
+            if config_path.exists():
+                self.config = load_config(config_path)
+            else:
+                raise FileNotFoundError(
+                    f"Configuration file '{config_path}' not found."
+                )
+        else:
+            self.config = load_config()
+
+    def _init_jira(self):
+        jira_service = CloudJiraService()
+        jira_service.auth(
+            url=self.config.jira_url,
+            username=self.config.jira_user,
+            token=self.config.jira_token,
+        )
+        self.jira = jira_service
 
     @abc.abstractmethod
     def __call__(self, *args, **kwargs):

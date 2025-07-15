@@ -1,8 +1,10 @@
+from typing import Literal
+
 from jiruff.base.commands import BaseCommandHandler
 
 
 class CheckCommand(BaseCommandHandler):
-    command_name: str = "check"
+    command_name: Literal["check"] = "check"
     command_description: str = "Run checks for GitLab and Jira instances."
 
     def __call__(self, *args, **kwargs):

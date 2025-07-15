@@ -1,12 +1,28 @@
 import argparse
 import sys
-from argparse import Namespace
+from typing import Type
 
+from jiruff.base.commands import BaseCommandHandler
 from jiruff.commands.check import CheckCommand
 from jiruff.commands.format import FormatCommand
+from jiruff.commands.sync import SyncCommand
 
 
-def main():
+def add_command(
+        command: Type[BaseCommandHandler],
+        subparsers: argparse._SubParsersAction,
+) -> None:
+    parser = subparsers.add_parser(
+        name=command.command_name,
+        help=command.command_description
+    )
+    parser.add_argument(
+        "-c", "--config", required=False, help="TOML configuration file",
+    )
+    parser.set_defaults(func=command())
+
+
+def main() -> None:
     parser = argparse.ArgumentParser(
         description="jiruff: linter for your GitLab and Jira"
     )
@@ -14,27 +30,9 @@ def main():
     subparsers = parser.add_subparsers(
         title="Commands", dest="command", required=True, help="Available commands"
     )
-
-    # 'check' command parser
-    check_command = CheckCommand()
-    check_parser = subparsers.add_parser(
-        name=check_command.command_name, help=check_command.command_description
-    )
-    check_parser.add_argument(
-        "-c", "--config", required=False, help="TOML configuration file path"
-    )
-    check_parser.set_defaults(func=check_command)
-
-    # 'format' command parser
-    format_command = FormatCommand()
-
-    fmt_parser = subparsers.add_parser(
-        name=format_command.command_name, help=format_command.command_description
-    )
-    fmt_parser.add_argument(
-        "-c", "--config", required=False, help="TOML configuration file path"
-    )
-    fmt_parser.set_defaults(func=format_command)
+    add_command(CheckCommand, subparsers)
+    add_command(FormatCommand, subparsers)
+    add_command(SyncCommand, subparsers)
 
     # Parse arguments and dispatch
     args = parser.parse_args()
@@ -43,6 +41,7 @@ def main():
 
 if __name__ == "__main__":
     import logging
+
     logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
