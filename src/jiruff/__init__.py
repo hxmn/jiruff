@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     logging.basicConfig(
         level=logging.DEBUG,
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        format="%(levelname)s: %(asctime)s - %(message)s - [%(name)s]",
         stream=sys.stdout,
     )
     logging.getLogger("keyring.backend").setLevel(logging.WARNING)

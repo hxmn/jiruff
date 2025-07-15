@@ -15,3 +15,7 @@ class JiraService(abc.ABC):
     @abc.abstractmethod
     def get_all_children(self, key: str):
         pass
+
+    @abc.abstractmethod
+    def get_json(self, path: str, data: dict) -> dict:
+        pass

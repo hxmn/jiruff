@@ -31,3 +31,6 @@ class CloudJiraService(JiraService):
 
     def get_all_children(self, key: str):
         return self.get_all_issues_by_jql(f"parent = {key}")
+
+    def get_json(self, path: str, data: dict) -> dict:
+        return self.jira._get_json(path, data, use_post=True)

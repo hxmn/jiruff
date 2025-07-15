@@ -10,6 +10,7 @@ requires-python = ">=3.11"
 dependencies = [
     "jira>=3.8.0",
     "keyring>=25.6.0",
+    "orjson>=3.10.18",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "python-gitlab>=6.0.0",
