@@ -1,6 +1,7 @@
 import logging
 
 from jira import JIRA
+from jira import JIRAError
 
 from jiruff.base.services import JiraService
 
@@ -34,3 +35,10 @@ class CloudJiraService(JiraService):
 
     def get_json(self, path: str, data: dict) -> dict:
         return self.jira._get_json(path, data, use_post=True)
+
+    def get_full_issue_json(self, issue_id: int) -> dict | None:
+        try:
+            return self.jira.issue(
+                id=str(issue_id), fields="*all", properties="*all").raw
+        except JIRAError:
+            return None

@@ -1,4 +1,5 @@
 import logging
+import time
 from argparse import Namespace
 from typing import Literal
 
@@ -7,12 +8,15 @@ import orjson
 from jiruff.base.commands import BaseCommandHandler
 from jiruff.local import load_local_state
 from jiruff.local import save_local_state
+from jiruff.local.paths import LOCAL_ISSUES_DIR
 from jiruff.local.paths import LOCAL_TIMESHEET_DIR
 
 logger = logging.getLogger(__name__)
 
 TIMESHEET_BATCH_SIZE = 999
-LEAST_TIMESHEET_ID = 20_000
+LEAST_TIMESHEET_ID = 20_000  # start timesheets series maybe empty
+
+MAX_EMPTY_CONSECUTIVE_ISSUES = 2000
 
 
 class SyncCommand(BaseCommandHandler):
@@ -37,9 +41,12 @@ class SyncCommand(BaseCommandHandler):
         self._load_config(args)
         self._init_jira()
 
-        self.save_timesheets()
+        self.download_timesheets()
+        self.download_issues()
 
-    def save_timesheets(self):
+    def download_timesheets(self):
+        logger.debug('Saving timesheets')
+
         local_state = load_local_state()
         start_id = local_state.last_downloaded_timesheet_entry_id
 
@@ -64,3 +71,28 @@ class SyncCommand(BaseCommandHandler):
 
         local_state.last_downloaded_timesheet_entry_id = start_id
         save_local_state(local_state)
+
+    def download_issues(self):
+        logger.debug('Saving issues')
+
+        local_state = load_local_state()
+        issue_id = local_state.last_downloaded_issue_entry_id + 1
+        num_of_empty_issues = 0
+
+        while num_of_empty_issues < MAX_EMPTY_CONSECUTIVE_ISSUES:
+            issue_path = LOCAL_ISSUES_DIR / self.config.company / f"{issue_id}.json"
+            if not issue_path.parent.exists():
+                issue_path.parent.mkdir(parents=True)
+            issue_json = self.jira.get_full_issue_json(issue_id)
+
+            if issue_json:
+                logger.info(f"Issue is downloaded: {issue_json['id']}")
+                issue_path.write_bytes(orjson.dumps(issue_json))
+                num_of_empty_issues = 0
+            else:
+                num_of_empty_issues += 1
+
+            issue_id += 1
+
+            local_state.last_downloaded_issue_entry_id = issue_id - 1
+            save_local_state(local_state)

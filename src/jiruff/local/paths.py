@@ -9,3 +9,7 @@ if not LOCAL_STATE_FILE.parent.exists():
 LOCAL_TIMESHEET_DIR = JIRUFF_PATH / 'timesheets'
 if not LOCAL_TIMESHEET_DIR.exists():
     LOCAL_TIMESHEET_DIR.mkdir(parents=True)
+
+LOCAL_ISSUES_DIR = JIRUFF_PATH / 'issues'
+if not LOCAL_ISSUES_DIR.exists():
+    LOCAL_ISSUES_DIR.mkdir(parents=True)
