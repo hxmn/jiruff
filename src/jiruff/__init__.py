@@ -26,6 +26,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="jiruff: linter for your GitLab and Jira"
     )
+    parser.add_argument(
+        "-V", "--verbose", help="Verbose output", action="store_true"
+    )
 
     subparsers = parser.add_subparsers(
         title="Commands", dest="command", required=True, help="Available commands"
@@ -34,19 +37,27 @@ def main() -> None:
     add_command(FormatCommand, subparsers)
     add_command(SyncCommand, subparsers)
 
+
     # Parse arguments and dispatch
     args = parser.parse_args()
-    args.func(args)
 
-
-if __name__ == "__main__":
     import logging
 
+    if args.verbose:
+        level = logging.DEBUG
+    else:
+        level = logging.INFO
+
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=level,
         format="%(levelname)s: %(asctime)s - %(message)s - [%(name)s]",
         stream=sys.stdout,
     )
     logging.getLogger("keyring.backend").setLevel(logging.WARNING)
 
+
+    args.func(args)
+
+
+if __name__ == "__main__":
     main()

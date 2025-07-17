@@ -76,7 +76,7 @@ class SyncCommand(BaseCommandHandler):
         logger.debug('Saving issues')
 
         local_state = load_local_state()
-        issue_id = local_state.last_downloaded_issue_entry_id + 1
+        issue_id = local_state.last_downloaded_issue_entry_id
         num_of_empty_issues = 0
 
         while num_of_empty_issues < MAX_EMPTY_CONSECUTIVE_ISSUES:
@@ -89,10 +89,11 @@ class SyncCommand(BaseCommandHandler):
                 logger.info(f"Issue is downloaded: {issue_json['id']}")
                 issue_path.write_bytes(orjson.dumps(issue_json))
                 num_of_empty_issues = 0
+
+                local_state.last_downloaded_issue_entry_id = issue_id
+                save_local_state(local_state)
             else:
                 num_of_empty_issues += 1
 
             issue_id += 1
 
-            local_state.last_downloaded_issue_entry_id = issue_id - 1
-            save_local_state(local_state)
