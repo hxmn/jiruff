@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 TIMESHEET_BATCH_SIZE = 999
 LEAST_TIMESHEET_ID = 20_000  # start timesheets series maybe empty
 
-MAX_EMPTY_CONSECUTIVE_ISSUES = 2000
+MAX_EMPTY_CONSECUTIVE_ISSUES = 150
 
 
 class SyncCommand(BaseCommandHandler):
@@ -76,7 +76,7 @@ class SyncCommand(BaseCommandHandler):
         logger.debug('Saving issues')
 
         local_state = load_local_state()
-        issue_id = local_state.last_downloaded_issue_entry_id
+        issue_id = local_state.last_downloaded_issue_entry_id + 1
         num_of_empty_issues = 0
 
         while num_of_empty_issues < MAX_EMPTY_CONSECUTIVE_ISSUES:
