@@ -27,8 +27,8 @@ class CloudJiraService(JiraService):
 
         self.jira = JIRA(server=url, basic_auth=(username, token))
 
-    def get_all_issues_by_jql(self, jql: str):
-        return self.jira.search_issues(jql_str=jql, maxResults=0)
+    def get_all_issues_by_jql(self, jql: str, num_results: int = 0):
+        return self.jira.search_issues(jql_str=jql, maxResults=num_results)
 
     def get_all_children(self, key: str):
         return self.get_all_issues_by_jql(f"parent = {key}")

@@ -9,7 +9,7 @@ class JiraService(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_all_issues_by_jql(self, jql: str):
+    def get_all_issues_by_jql(self, jql: str, num_results: int = 0):
         pass
 
     @abc.abstractmethod

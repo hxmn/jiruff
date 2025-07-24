@@ -1,6 +1,7 @@
 import logging
-import time
 from argparse import Namespace
+from datetime import datetime
+from datetime import timedelta
 from typing import Literal
 
 import orjson
@@ -14,9 +15,7 @@ from jiruff.local.paths import LOCAL_TIMESHEET_DIR
 logger = logging.getLogger(__name__)
 
 TIMESHEET_BATCH_SIZE = 999
-LEAST_TIMESHEET_ID = 20_000  # start timesheets series maybe empty
-
-MAX_EMPTY_CONSECUTIVE_ISSUES = 150
+LEAST_TIMESHEET_ID = 20_000
 
 
 class SyncCommand(BaseCommandHandler):
@@ -42,10 +41,12 @@ class SyncCommand(BaseCommandHandler):
         self._init_jira()
 
         self.download_timesheets()
-        self.download_issues()
+        self.download_new_issues()
+        # self.check_downloads()
+        self.download_updated_issues()
 
     def download_timesheets(self):
-        logger.debug('Saving timesheets')
+        logger.info(f'Downloading {self.config.company} timesheets')
 
         local_state = load_local_state()
         start_id = local_state.last_downloaded_timesheet_entry_id
@@ -72,28 +73,58 @@ class SyncCommand(BaseCommandHandler):
         local_state.last_downloaded_timesheet_entry_id = start_id
         save_local_state(local_state)
 
-    def download_issues(self):
-        logger.debug('Saving issues')
+    def download_new_issues(self):
+        logger.info(f'Downloading {self.config.company} issues')
+
+        latest_issue = self.jira.get_all_issues_by_jql("order by created DESC", num_results=1)
+        max_issue_id = int(latest_issue[0].id)
 
         local_state = load_local_state()
-        issue_id = local_state.last_downloaded_issue_entry_id + 1
-        num_of_empty_issues = 0
+        if local_state.last_downloaded_issue_entry_id == max_issue_id:
+            logger.info("No new issues")
+            return
 
-        while num_of_empty_issues < MAX_EMPTY_CONSECUTIVE_ISSUES:
-            issue_path = LOCAL_ISSUES_DIR / self.config.company / f"{issue_id}.json"
-            if not issue_path.parent.exists():
-                issue_path.parent.mkdir(parents=True)
-            issue_json = self.jira.get_full_issue_json(issue_id)
+        for issue_id in range(local_state.last_downloaded_issue_entry_id + 1, max_issue_id + 1):
+            self.download_issue(issue_id)
 
-            if issue_json:
-                logger.info(f"Issue is downloaded: {issue_json['id']}")
-                issue_path.write_bytes(orjson.dumps(issue_json))
-                num_of_empty_issues = 0
+    def download_issue(self, issue_id: int, force=False):
+        issue_path = LOCAL_ISSUES_DIR / self.config.company / f"{issue_id}.json"
+        if not issue_path.parent.exists():
+            issue_path.parent.mkdir(parents=True)
+        if issue_path.exists() and not force:
+            return
 
+        logger.debug(f'Downloading issue {issue_id}')
+        issue_json = self.jira.get_full_issue_json(issue_id)
+
+        if issue_json:
+            logger.info(f"Issue is downloaded: {issue_json['id']}")
+            issue_path.write_bytes(orjson.dumps(issue_json))
+
+            local_state = load_local_state()
+            if issue_id > local_state.last_downloaded_issue_entry_id:
                 local_state.last_downloaded_issue_entry_id = issue_id
-                save_local_state(local_state)
-            else:
-                num_of_empty_issues += 1
+            updated_at = datetime.fromisoformat(issue_json['fields']['updated'])
+            if isinstance(local_state.last_updated_issue_at,
+                          str) or local_state.last_updated_issue_at < updated_at:
+                local_state.last_updated_issue_at = updated_at
+            save_local_state(local_state)
 
-            issue_id += 1
+    def check_downloads(self):
+        logger.debug(f'Checking {self.config.company} downloads')
+        for timesheet_path in (LOCAL_TIMESHEET_DIR / self.config.company).rglob("**/*.json"):
+            timesheet_json = orjson.loads(timesheet_path.read_bytes())
+            issue_id = int(timesheet_json["issueId"])
+            self.download_issue(issue_id, force=False)
 
+    def download_updated_issues(self):
+        local_state = load_local_state()
+        since = local_state.last_updated_issue_at
+        if isinstance(since, datetime):
+            since = since - timedelta(minutes=1)
+            since = since.strftime("%Y-%m-%d %H:%M")
+        updated_jql = f"updated > \"{since}\" order by updated desc"
+        for issue in self.jira.get_all_issues_by_jql(updated_jql, num_results=0):
+            issue_id = int(issue.id)
+            logger.info(f"update issue: {issue_id}")
+            self.download_issue(issue_id, force=True)

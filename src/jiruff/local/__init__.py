@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 from pydantic import Field
 
@@ -7,6 +9,8 @@ from jiruff.local.paths import LOCAL_STATE_FILE
 class LocalState(BaseModel):
     last_downloaded_timesheet_entry_id: int = Field(default=0)
     last_downloaded_issue_entry_id: int = Field(default=0)
+
+    last_updated_issue_at: datetime | str = Field(default="-1d")
 
 
 def load_local_state() -> LocalState:
