@@ -15,4 +15,4 @@ It has 4 simple command line arguments:
 
 ### artifacts linter
 
-* `art-001-versions-propagation` - if version is set in the issue, it should be in children issues
+* `issues-001-versions-propagation` - if version is set in the issue, it should be in children issues

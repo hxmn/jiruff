@@ -9,7 +9,7 @@ from jiruff.base.services import JiraService
 logger = logging.getLogger(__name__)
 
 
-class FormatArt001Config(BaseModel):
+class FormatIssues001Config(BaseModel):
     updated_history_depth: str = Field(
         default="-10d",
         description="Depth of the updated history to consider for version propagation.")
@@ -19,19 +19,19 @@ class FormatArt001Config(BaseModel):
     )
 
 
-class FormatArt001VersionPropagation:
-    rule_key: Literal["art-001"] = "art-001"
+class FormatIssues001VersionPropagation:
+    rule_key: Literal["issues-001"] = "issues-001"
 
     def __init__(self, jira: JiraService, rule_config: dict[str, str] | None = None) -> None:
         self.jira = jira
         rule_config_dict: dict[str, str] = rule_config if rule_config is not None else {}
-        self.rule_config = FormatArt001Config(**rule_config_dict)
+        self.rule_config = FormatIssues001Config(**rule_config_dict)
 
     def run(self) -> None:
         """
-        Run the version propagation for ART-001.
+        Run the version propagation for ISSUES-001.
         """
-        logger.info("Running ART-001 version propagation formatter rule.")
+        logger.info("Running ISSUES-001 version propagation formatter rule.")
         issues_with_versions = self.jira.get_all_issues_by_jql(
             f"fixVersion != EMPTY and "
             f"  issuetype in standardIssueTypes() and "

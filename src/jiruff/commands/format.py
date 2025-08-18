@@ -2,8 +2,8 @@ from argparse import Namespace
 from typing import Literal
 
 from jiruff.base.commands import BaseCommandHandler
-from jiruff.rules.format.art_001_versions_propagation import (
-    FormatArt001VersionPropagation,
+from jiruff.rules.format.issues_001_versions_propagation import (
+    FormatIssues001VersionPropagation,
 )
 
 
@@ -30,8 +30,8 @@ class FormatCommand(BaseCommandHandler):
         self._load_config(args)
         self._init_jira()
 
-        art_001 = FormatArt001VersionPropagation(
+        issues_001 = FormatIssues001VersionPropagation(
             jira=self.jira,
-            rule_config=self.config.get_config_dict(FormatArt001VersionPropagation.rule_key)
+            rule_config=self.config.get_config_dict(FormatIssues001VersionPropagation.rule_key)
         )
-        art_001.run()
+        issues_001.run()

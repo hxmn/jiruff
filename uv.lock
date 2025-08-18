@@ -22,11 +22,11 @@ wheels = [
 
 [[package]]
 name = "certifi"
-version = "2025.6.15"
+version = "2025.8.3"
 source = { registry = "https://arts.numdes.com/repository/nd-python-central/simple" }
-sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/certifi/2025.6.15/certifi-2025.6.15.tar.gz", hash = "sha256:d747aa5a8b9bbbb1bb8c22bb13e22bd1f18e9796defa16bab421f7f7a317323b" }
+sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/certifi/2025.8.3/certifi-2025.8.3.tar.gz", hash = "sha256:e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407" }
 wheels = [
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/certifi/2025.6.15/certifi-2025.6.15-py3-none-any.whl", hash = "sha256:2e0c7ce7cb5d8f8634ca55d2ba7e6ec2689a2fd6537d8dec1296a477a4910057" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/certifi/2025.8.3/certifi-2025.8.3-py3-none-any.whl", hash = "sha256:f6c12493cfb1b06ba2ff328595af9350c65d6644968e5d3a2ffd78699af217a5" },
 ]
 
 [[package]]
@@ -64,50 +64,55 @@ wheels = [
 
 [[package]]
 name = "charset-normalizer"
-version = "3.4.2"
+version = "3.4.3"
 source = { registry = "https://arts.numdes.com/repository/nd-python-central/simple" }
-sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2.tar.gz", hash = "sha256:5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63" }
+sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3.tar.gz", hash = "sha256:6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14" }
 wheels = [
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:be1e352acbe3c78727a16a455126d9ff83ea2dfdcbc83148d2982305a04714c2" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:aa88ca0b1932e93f2d961bf3addbb2db902198dca337d88c89e1559e066e7645" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:d524ba3f1581b35c03cb42beebab4a13e6cdad7b36246bd22541fa585a56cccd" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:28a1005facc94196e1fb3e82a3d442a9d9110b8434fc1ded7a24a2983c9888d8" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fdb20a30fe1175ecabed17cbf7812f7b804b8a315a25f24678bcdf120a90077f" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:0f5d9ed7f254402c9e7d35d2f5972c9bbea9040e99cd2861bd77dc68263277c7" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:efd387a49825780ff861998cd959767800d54f8308936b21025326de4b5a42b9" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:f0aa37f3c979cf2546b73e8222bbfa3dc07a641585340179d768068e3455e544" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-musllinux_1_2_ppc64le.whl", hash = "sha256:e70e990b2137b29dc5564715de1e12701815dacc1d056308e2b17e9095372a82" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-musllinux_1_2_s390x.whl", hash = "sha256:0c8c57f84ccfc871a48a47321cfa49ae1df56cd1d965a09abe84066f6853b9c0" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:6b66f92b17849b85cad91259efc341dce9c1af48e2173bf38a85c6329f1033e5" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-win32.whl", hash = "sha256:daac4765328a919a805fa5e2720f3e94767abd632ae410a9062dff5412bae65a" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp311-cp311-win_amd64.whl", hash = "sha256:e53efc7c7cee4c1e70661e2e112ca46a575f90ed9ae3fef200f2a25e954f4b28" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:0c29de6a1a95f24b9a1aa7aefd27d2487263f00dfd55a77719b530788f75cff7" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cddf7bd982eaa998934a91f69d182aec997c6c468898efe6679af88283b498d3" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:fcbe676a55d7445b22c10967bceaaf0ee69407fbe0ece4d032b6eb8d4565982a" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:d41c4d287cfc69060fa91cae9683eacffad989f1a10811995fa309df656ec214" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4e594135de17ab3866138f496755f302b72157d115086d100c3f19370839dd3a" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:cf713fe9a71ef6fd5adf7a79670135081cd4431c2943864757f0fa3a65b1fafd" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:a370b3e078e418187da8c3674eddb9d983ec09445c99a3a263c2011993522981" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:a955b438e62efdf7e0b7b52a64dc5c3396e2634baa62471768a64bc2adb73d5c" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:7222ffd5e4de8e57e03ce2cef95a4c43c98fcb72ad86909abdfc2c17d227fc1b" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_s390x.whl", hash = "sha256:bee093bf902e1d8fc0ac143c88902c3dfc8941f7ea1d6a8dd2bcb786d33db03d" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:dedb8adb91d11846ee08bec4c8236c8549ac721c245678282dcb06b221aab59f" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-win32.whl", hash = "sha256:db4c7bf0e07fc3b7d89ac2a5880a6a8062056801b83ff56d8464b70f65482b6c" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp312-cp312-win_amd64.whl", hash = "sha256:5a9979887252a82fefd3d3ed2a8e3b937a7a809f65dcb1e068b090e165bbe99e" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:926ca93accd5d36ccdabd803392ddc3e03e6d4cd1cf17deff3b989ab8e9dbcf0" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:eba9904b0f38a143592d9fc0e19e2df0fa2e41c3c3745554761c5f6447eedabf" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:3fddb7e2c84ac87ac3a947cb4e66d143ca5863ef48e4a5ecb83bd48619e4634e" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:98f862da73774290f251b9df8d11161b6cf25b599a66baf087c1ffe340e9bfd1" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6c9379d65defcab82d07b2a9dfbfc2e95bc8fe0ebb1b176a3190230a3ef0e07c" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e635b87f01ebc977342e2697d05b56632f5f879a4f15955dfe8cef2448b51691" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:1c95a1e2902a8b722868587c0e1184ad5c55631de5afc0eb96bc4b0d738092c0" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:ef8de666d6179b009dce7bcb2ad4c4a779f113f12caf8dc77f0162c29d20490b" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:32fc0341d72e0f73f80acb0a2c94216bd704f4f0bce10aedea38f30502b271ff" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:289200a18fa698949d2b39c671c2cc7a24d44096784e76614899a7ccf2574b7b" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:4a476b06fbcf359ad25d34a057b7219281286ae2477cc5ff5e3f70a246971148" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-win32.whl", hash = "sha256:aaeeb6a479c7667fbe1099af9617c83aaca22182d6cf8c53966491a0f1b7ffb7" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-cp313-cp313-win_amd64.whl", hash = "sha256:aa6af9e7d59f9c12b33ae4e9450619cf2488e2bbe9b44030905877f0b2324980" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.2/charset_normalizer-3.4.2-py3-none-any.whl", hash = "sha256:7f56930ab0abd1c45cd15be65cc741c28b1c9a34876ce8c17a2fa107810c0af0" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:b256ee2e749283ef3ddcff51a675ff43798d92d746d1a6e4631bf8c707d22d0b" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:13faeacfe61784e2559e690fc53fa4c5ae97c6fcedb8eb6fb8d0a15b475d2c64" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:00237675befef519d9af72169d8604a067d92755e84fe76492fef5441db05b91" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:585f3b2a80fbd26b048a0be90c5aae8f06605d3c92615911c3a2b03a8a3b796f" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:0e78314bdc32fa80696f72fa16dc61168fda4d6a0c014e0380f9d02f0e5d8a07" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:96b2b3d1a83ad55310de8c7b4a2d04d9277d5591f40761274856635acc5fcb30" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-musllinux_1_2_ppc64le.whl", hash = "sha256:939578d9d8fd4299220161fdd76e86c6a251987476f5243e8864a7844476ba14" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-musllinux_1_2_s390x.whl", hash = "sha256:fd10de089bcdcd1be95a2f73dbe6254798ec1bda9f450d5828c96f93e2536b9c" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:1e8ac75d72fa3775e0b7cb7e4629cec13b7514d928d15ef8ea06bca03ef01cae" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-win32.whl", hash = "sha256:6cf8fd4c04756b6b60146d98cd8a77d0cdae0e1ca20329da2ac85eed779b6849" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp311-cp311-win_amd64.whl", hash = "sha256:31a9a6f775f9bcd865d88ee350f0ffb0e25936a7f930ca98995c05abf1faf21c" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:e28e334d3ff134e88989d90ba04b47d84382a828c061d0d1027b1b12a62b39b1" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:0cacf8f7297b0c4fcb74227692ca46b4a5852f8f4f24b3c766dd94a1075c4884" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:c6fd51128a41297f5409deab284fecbe5305ebd7e5a1f959bee1c054622b7018" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:3cfb2aad70f2c6debfbcb717f23b7eb55febc0bb23dcffc0f076009da10c6392" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:1606f4a55c0fd363d754049cdf400175ee96c992b1f8018b993941f221221c5f" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:027b776c26d38b7f15b26a5da1044f376455fb3766df8fc38563b4efbc515154" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:42e5088973e56e31e4fa58eb6bd709e42fc03799c11c42929592889a2e54c491" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-musllinux_1_2_s390x.whl", hash = "sha256:cc34f233c9e71701040d772aa7490318673aa7164a0efe3172b2981218c26d93" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:320e8e66157cc4e247d9ddca8e21f427efc7a04bbd0ac8a9faf56583fa543f9f" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-win32.whl", hash = "sha256:fb6fecfd65564f208cbf0fba07f107fb661bcd1a7c389edbced3f7a493f70e37" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp312-cp312-win_amd64.whl", hash = "sha256:86df271bf921c2ee3818f0522e9a5b8092ca2ad8b065ece5d7d9d0e9f4849bcc" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:14c2a87c65b351109f6abfc424cab3927b3bdece6f706e4d12faaf3d52ee5efe" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:41d1fc408ff5fdfb910200ec0e74abc40387bccb3252f3f27c0676731df2b2c8" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:1bb60174149316da1c35fa5233681f7c0f9f514509b8e399ab70fea5f17e45c9" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:30d006f98569de3459c2fc1f2acde170b7b2bd265dc1943e87e1a4efe1b67c31" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:416175faf02e4b0810f1f38bcb54682878a4af94059a1cd63b8747244420801f" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:6aab0f181c486f973bc7262a97f5aca3ee7e1437011ef0c2ec04b5a11d16c927" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:fdabf8315679312cfa71302f9bd509ded4f2f263fb5b765cf1433b39106c3cc9" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:bd28b817ea8c70215401f657edef3a8aa83c29d447fb0b622c35403780ba11d5" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:18343b2d246dc6761a249ba1fb13f9ee9a2bcd95decc767319506056ea4ad4dc" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-win32.whl", hash = "sha256:6fb70de56f1859a3f71261cbe41005f56a7842cc348d3aeb26237560bfa5e0ce" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp313-cp313-win_amd64.whl", hash = "sha256:cf1ebb7d78e1ad8ec2a8c4732c7be2e736f6e5123a4146c5b89c9d1f585f8cef" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-macosx_10_13_universal2.whl", hash = "sha256:3cd35b7e8aedeb9e34c41385fda4f73ba609e561faedfae0a9e75e44ac558a15" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b89bc04de1d83006373429975f8ef9e7932534b8cc9ca582e4db7d20d91816db" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:2001a39612b241dae17b4687898843f254f8748b796a2e16f1051a17078d991d" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:8dcfc373f888e4fb39a7bc57e93e3b845e7f462dacc008d9749568b1c4ece096" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:18b97b8404387b96cdbd30ad660f6407799126d26a39ca65729162fd810a99aa" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:ccf600859c183d70eb47e05a44cd80a4ce77394d1ac0f79dbd2dd90a69a3a049" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-musllinux_1_2_ppc64le.whl", hash = "sha256:53cd68b185d98dde4ad8990e56a58dea83a4162161b1ea9272e5c9182ce415e0" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-musllinux_1_2_s390x.whl", hash = "sha256:30a96e1e1f865f78b030d65241c1ee850cdf422d869e9028e2fc1d5e4db73b92" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:d716a916938e03231e86e43782ca7878fb602a125a91e7acb8b5112e2e96ac16" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-win32.whl", hash = "sha256:c6dbd0ccdda3a2ba7c2ecd9d77b37f3b5831687d8dc1b6ca5f56a4880cc7b7ce" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-cp314-cp314-win_amd64.whl", hash = "sha256:73dc19b562516fc9bcf6e5d6e596df0b4eb98d87e4f79f3ae71840e6ed21361c" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/charset-normalizer/3.4.3/charset_normalizer-3.4.3-py3-none-any.whl", hash = "sha256:ce571ab16d890d23b5c278547ba694193a45011ff86a9162a71307ed9f86759a" },
 ]
 
 [[package]]
@@ -121,35 +126,35 @@ wheels = [
 
 [[package]]
 name = "cryptography"
-version = "45.0.4"
+version = "45.0.6"
 source = { registry = "https://arts.numdes.com/repository/nd-python-central/simple" }
 dependencies = [
     { name = "cffi", marker = "platform_python_implementation != 'PyPy'" },
 ]
-sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4.tar.gz", hash = "sha256:7405ade85c83c37682c8fe65554759800a4a8c54b2d96e0f8ad114d31b808d57" }
+sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6.tar.gz", hash = "sha256:5c966c732cf6e4a276ce83b6e4c729edda2df6929083a952cc7da973c539c719" }
 wheels = [
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:680806cf63baa0039b920f4976f5f31b10e772de42f16310a6839d9f21a26b0d" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:4ca0f52170e821bc8da6fc0cc565b7bb8ff8d90d36b5e9fdd68e8a86bdf72036" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:f3fe7a5ae34d5a414957cc7f457e2b92076e72938423ac64d215722f6cf49a9e" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux_2_28_armv7l.manylinux_2_31_armv7l.whl", hash = "sha256:25eb4d4d3e54595dc8adebc6bbd5623588991d86591a78c2548ffb64797341e2" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:ce1678a2ccbe696cf3af15a75bb72ee008d7ff183c9228592ede9db467e64f1b" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux_2_34_aarch64.whl", hash = "sha256:49fe9155ab32721b9122975e168a6760d8ce4cffe423bcd7ca269ba41b5dfac1" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-manylinux_2_34_x86_64.whl", hash = "sha256:2882338b2a6e0bd337052e8b9007ced85c637da19ef9ecaf437744495c8c2999" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:23b9c3ea30c3ed4db59e7b9619272e94891f8a3a5591d0b656a7582631ccf750" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp311-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:b0a97c927497e3bc36b33987abb99bf17a9a175a19af38a892dc4bbb844d7ee2" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:6a5bf57554e80f75a7db3d4b1dacaa2764611ae166ab42ea9a72bcdb5d577637" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:46cf7088bf91bdc9b26f9c55636492c1cce3e7aaf8041bbf0243f5e5325cfb2d" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:7bedbe4cc930fa4b100fc845ea1ea5788fcd7ae9562e669989c11618ae8d76ee" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux_2_28_armv7l.manylinux_2_31_armv7l.whl", hash = "sha256:eaa3e28ea2235b33220b949c5a0d6cf79baa80eab2eb5607ca8ab7525331b9ff" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:7ef2dde4fa9408475038fc9aadfc1fb2676b174e68356359632e980c661ec8f6" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux_2_34_aarch64.whl", hash = "sha256:6a3511ae33f09094185d111160fd192c67aa0a2a8d19b54d36e4c78f651dc5ad" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-manylinux_2_34_x86_64.whl", hash = "sha256:06509dc70dd71fa56eaa138336244e2fbaf2ac164fc9b5e66828fccfd2b680d6" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:5f31e6b0a5a253f6aa49be67279be4a7e5a4ef259a9f33c69f7d1b1191939872" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-cp37-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:944e9ccf67a9594137f942d5b52c8d238b1b4e46c7a0c2891b7ae6e01e7c80a4" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-pp311-pypy311_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:03dbff8411206713185b8cebe31bc5c0eb544799a50c09035733716b386e61a4" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-pp311-pypy311_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:51dfbd4d26172d31150d84c19bbe06c68ea4b7f11bbc7b3a5e146b367c311349" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-pp311-pypy311_pp73-manylinux_2_34_aarch64.whl", hash = "sha256:0339a692de47084969500ee455e42c58e449461e0ec845a34a6a9b9bf7df7fb8" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.4/cryptography-45.0.4-pp311-pypy311_pp73-manylinux_2_34_x86_64.whl", hash = "sha256:0cf13c77d710131d33e63626bd55ae7c0efb701ebdc2b3a7952b9b23a0412862" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:44647c5d796f5fc042bbc6d61307d04bf29bccb74d188f18051b635f20a9c75f" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:e40b80ecf35ec265c452eea0ba94c9587ca763e739b8e559c128d23bff7ebbbf" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:00e8724bdad672d75e6f069b27970883179bd472cd24a63f6e620ca7e41cc0c5" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux_2_28_armv7l.manylinux_2_31_armv7l.whl", hash = "sha256:7a3085d1b319d35296176af31c90338eeb2ddac8104661df79f80e1d9787b8b2" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:1b7fa6a1c1188c7ee32e47590d16a5a0646270921f8020efc9a511648e1b2e08" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux_2_34_aarch64.whl", hash = "sha256:275ba5cc0d9e320cd70f8e7b96d9e59903c815ca579ab96c1e37278d231fc402" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-manylinux_2_34_x86_64.whl", hash = "sha256:f4028f29a9f38a2025abedb2e409973709c660d44319c61762202206ed577c42" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:ee411a1b977f40bd075392c80c10b58025ee5c6b47a822a33c1198598a7a5f05" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp311-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:e2a21a8eda2d86bb604934b6b37691585bd095c1f788530c1fcefc53a82b3453" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:0d9ef57b6768d9fa58e92f4947cea96ade1233c0e236db22ba44748ffedca394" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ea3c42f2016a5bbf71825537c2ad753f2870191134933196bee408aac397b3d9" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:20ae4906a13716139d6d762ceb3e0e7e110f7955f3bc3876e3a07f5daadec5f3" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux_2_28_armv7l.manylinux_2_31_armv7l.whl", hash = "sha256:2dac5ec199038b8e131365e2324c03d20e97fe214af051d20c49db129844e8b3" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:18f878a34b90d688982e43f4b700408b478102dd58b3e39de21b5ebf6509c301" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux_2_34_aarch64.whl", hash = "sha256:5bd6020c80c5b2b2242d6c48487d7b85700f5e0038e67b29d706f98440d66eb5" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-manylinux_2_34_x86_64.whl", hash = "sha256:eccddbd986e43014263eda489abbddfbc287af5cddfd690477993dbb31e31016" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:550ae02148206beb722cfe4ef0933f9352bab26b087af00e48fdfb9ade35c5b3" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-cp37-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:5b64e668fc3528e77efa51ca70fadcd6610e8ab231e3e06ae2bab3b31c2b8ed9" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-pp311-pypy311_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:3de77e4df42ac8d4e4d6cdb342d989803ad37707cf8f3fbf7b088c9cbdd46427" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-pp311-pypy311_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:599c8d7df950aa68baa7e98f7b73f4f414c9f02d0e8104a30c0182a07732638b" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-pp311-pypy311_pp73-manylinux_2_34_aarch64.whl", hash = "sha256:31a2b9a10530a1cb04ffd6aa1cd4d3be9ed49f7d77a4dafe198f3b382f41545c" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/cryptography/45.0.6/cryptography-45.0.6-pp311-pypy311_pp73-manylinux_2_34_x86_64.whl", hash = "sha256:e5b3dda1b00fb41da3af4c5ef3f922a200e33ee5ba0f0bc9ecf0b0c173958385" },
 ]
 
 [[package]]
@@ -607,27 +612,28 @@ wheels = [
 
 [[package]]
 name = "ruff"
-version = "0.12.0"
+version = "0.12.9"
 source = { registry = "https://arts.numdes.com/repository/nd-python-central/simple" }
-sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0.tar.gz", hash = "sha256:4d047db3662418d4a848a3fdbfaf17488b34b62f527ed6f10cb8afd78135bc5c" }
+sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9.tar.gz", hash = "sha256:fbd94b2e3c623f659962934e52c2bea6fc6da11f667a427a368adaf3af2c866a" }
 wheels = [
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-linux_armv6l.whl", hash = "sha256:5652a9ecdb308a1754d96a68827755f28d5dfb416b06f60fd9e13f26191a8848" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:05ed0c914fabc602fc1f3b42c53aa219e5736cb030cdd85640c32dbc73da74a6" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:07a7aa9b69ac3fcfda3c507916d5d1bca10821fe3797d46bad10f2c6de1edda0" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e7731c3eec50af71597243bace7ec6104616ca56dda2b99c89935fe926bdcd48" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:952d0630eae628250ab1c70a7fffb641b03e6b4a2d3f3ec6c1d19b4ab6c6c807" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c021f04ea06966b02614d442e94071781c424ab8e02ec7af2f037b4c1e01cc82" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:7d235618283718ee2fe14db07f954f9b2423700919dc688eacf3f8797a11315c" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:0c0758038f81beec8cc52ca22de9685b8ae7f7cc18c013ec2050012862cc9165" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:139b3d28027987b78fc8d6cfb61165447bdf3740e650b7c480744873688808c2" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:68853e8517b17bba004152aebd9dd77d5213e503a5f2789395b25f26acac0da4" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:3a9512af224b9ac4757f7010843771da6b2b0935a9e5e76bb407caa901a1a514" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:b08df3d96db798e5beb488d4df03011874aff919a97dcc2dd8539bb2be5d6a88" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-musllinux_1_2_i686.whl", hash = "sha256:6a315992297a7435a66259073681bb0d8647a826b7a6de45c6934b2ca3a9ed51" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:1e55e44e770e061f55a7dbc6e9aed47feea07731d809a3710feda2262d2d4d8a" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-win32.whl", hash = "sha256:7162a4c816f8d1555eb195c46ae0bd819834d2a3f18f98cc63819a7b46f474fb" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-win_amd64.whl", hash = "sha256:d00b7a157b8fb6d3827b49d3324da34a1e3f93492c1f97b08e222ad7e9b291e0" },
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.0/ruff-0.12.0-py3-none-win_arm64.whl", hash = "sha256:8cd24580405ad8c1cc64d61725bca091d6b6da7eb3d36f72cc605467069d7e8b" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-linux_armv6l.whl", hash = "sha256:fcebc6c79fcae3f220d05585229463621f5dbf24d79fdc4936d9302e177cfa3e" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:aed9d15f8c5755c0e74467731a007fcad41f19bcce41cd75f768bbd687f8535f" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-macosx_11_0_arm64.whl", hash = "sha256:5b15ea354c6ff0d7423814ba6d44be2807644d0c05e9ed60caca87e963e93f70" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d596c2d0393c2502eaabfef723bd74ca35348a8dac4267d18a94910087807c53" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:1b15599931a1a7a03c388b9c5df1bfa62be7ede6eb7ef753b272381f39c3d0ff" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:3d02faa2977fb6f3f32ddb7828e212b7dd499c59eb896ae6c03ea5c303575756" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:17d5b6b0b3a25259b69ebcba87908496e6830e03acfb929ef9fd4c58675fa2ea" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:72db7521860e246adbb43f6ef464dd2a532ef2ef1f5dd0d470455b8d9f1773e0" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:a03242c1522b4e0885af63320ad754d53983c9599157ee33e77d748363c561ce" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9fc83e4e9751e6c13b5046d7162f205d0a7bac5840183c5beebf824b08a27340" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-manylinux_2_31_riscv64.whl", hash = "sha256:881465ed56ba4dd26a691954650de6ad389a2d1fdb130fe51ff18a25639fe4bb" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:43f07a3ccfc62cdb4d3a3348bf0588358a66da756aa113e071b8ca8c3b9826af" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:07adb221c54b6bba24387911e5734357f042e5669fa5718920ee728aba3cbadc" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-musllinux_1_2_i686.whl", hash = "sha256:f5cd34fabfdea3933ab85d72359f118035882a01bff15bd1d2b15261d85d5f66" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:f6be1d2ca0686c54564da8e7ee9e25f93bdd6868263805f8c0b8fc6a449db6d7" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-win32.whl", hash = "sha256:cc7a37bd2509974379d0115cc5608a1a4a6c4bff1b452ea69db83c8855d53f93" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-win_amd64.whl", hash = "sha256:6fb15b1977309741d7d098c8a3cb7a30bc112760a00fb6efb7abc85f00ba5908" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/ruff/0.12.9/ruff-0.12.9-py3-none-win_arm64.whl", hash = "sha256:63c8c819739d86b96d500cce885956a1a48ab056bbcbc61b747ad494b2485089" },
 ]
 
 [[package]]
@@ -645,11 +651,11 @@ wheels = [
 
 [[package]]
 name = "typing-extensions"
-version = "4.14.0"
+version = "4.14.1"
 source = { registry = "https://arts.numdes.com/repository/nd-python-central/simple" }
-sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/typing-extensions/4.14.0/typing_extensions-4.14.0.tar.gz", hash = "sha256:8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4" }
+sdist = { url = "https://arts.numdes.com/repository/nd-python-central/packages/typing-extensions/4.14.1/typing_extensions-4.14.1.tar.gz", hash = "sha256:38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36" }
 wheels = [
-    { url = "https://arts.numdes.com/repository/nd-python-central/packages/typing-extensions/4.14.0/typing_extensions-4.14.0-py3-none-any.whl", hash = "sha256:a1514509136dd0b477638fc68d6a91497af5076466ad0fa6c338e44e359944af" },
+    { url = "https://arts.numdes.com/repository/nd-python-central/packages/typing-extensions/4.14.1/typing_extensions-4.14.1-py3-none-any.whl", hash = "sha256:d1e1e3b58374dc93031d6eda2420a48ea44a36c2b4766a4fdeb3710755731d76" },
 ]
 
 [[package]]
