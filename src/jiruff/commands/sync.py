@@ -76,7 +76,9 @@ class SyncCommand(BaseCommandHandler):
     def download_new_issues(self):
         logger.info(f'Downloading {self.config.company} issues')
 
-        latest_issue = self.jira.get_all_issues_by_jql("order by created DESC", num_results=1)
+        latest_issue = self.jira.get_all_issues_by_jql(
+            jql="created < now(\"-10000d\") order by created DESC",
+            num_results=1)
         max_issue_id = int(latest_issue[0].id)
 
         local_state = load_local_state()
