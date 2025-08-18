@@ -120,6 +120,7 @@ class SyncCommand(BaseCommandHandler):
             self.download_issue(issue_id, force=False)
 
     def download_updated_issues(self):
+        logger.info(f'Downloading {self.config.company} updated issues')
         local_state = load_local_state()
         since = local_state.last_updated_issue_at
         if isinstance(since, datetime):
@@ -130,3 +131,4 @@ class SyncCommand(BaseCommandHandler):
             issue_id = int(issue.id)
             logger.info(f"update issue: {issue_id}")
             self.download_issue(issue_id, force=True)
+        logger.info(f'Finished downloading {self.config.company} updated issues')
