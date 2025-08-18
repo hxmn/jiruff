@@ -1,3 +1,4 @@
+import json
 import logging
 
 from jira import JIRA
@@ -42,3 +43,9 @@ class CloudJiraService(JiraService):
                 id=str(issue_id), fields="*all", properties="*all").raw
         except JIRAError:
             return None
+
+    def add_watcher(self, issue_id: str, watcher_id: str):
+        # noinspection PyProtectedMember
+        url = self.jira._get_url("issue/" + issue_id + "/watchers")
+        # noinspection PyProtectedMember
+        self.jira._session.post(url, data=json.dumps(watcher_id))

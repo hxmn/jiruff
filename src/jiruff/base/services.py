@@ -23,3 +23,7 @@ class JiraService(abc.ABC):
     @abc.abstractmethod
     def get_full_issue_json(self, issue_id: int) -> dict:
         pass
+
+    @abc.abstractmethod
+    def add_watcher(self, issue_id: str, watcher_id: str):
+        pass
