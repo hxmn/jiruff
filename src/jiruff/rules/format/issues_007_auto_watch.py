@@ -21,7 +21,9 @@ class FormatIssues007Config(BaseModel):
 class FormatIssues007AutoWatch:
     rule_key: Literal["issues-007"] = "issues-007"
 
-    def __init__(self, jira: JiraService, rule_config: dict[str, str] | None = None) -> None:
+    def __init__(
+        self, jira: JiraService, rule_config: dict[str, str] | None = None
+    ) -> None:
         self.jira = jira
         self.rule_config = FormatIssues007Config.model_validate(rule_config)
 
@@ -35,7 +37,8 @@ class FormatIssues007AutoWatch:
             jira_user_id = auto_watch_rule.jira_user_id
 
             issues = self.jira.get_all_issues_by_jql(
-                f"created >= -180d and watcher != '{jira_user_id}'")
+                f"created >= -180d and watcher != '{jira_user_id}'"
+            )
             for issue in issues:
                 logger.info(f"auto watch issue: {issue.key} by {jira_user_id}")
                 self.jira.add_watcher(issue.key, jira_user_id)

@@ -33,12 +33,14 @@ class FormatCommand(BaseCommandHandler):
 
         issues_001 = FormatIssues001VersionPropagation(
             jira=self.jira,
-            rule_config=self.config.get_config_dict(FormatIssues001VersionPropagation.rule_key)
+            rule_config=self.config.get_config_dict(
+                FormatIssues001VersionPropagation.rule_key
+            ),
         )
         issues_001.run()
 
         issues_007 = FormatIssues007AutoWatch(
             jira=self.jira,
-            rule_config=self.config.get_config_dict(FormatIssues007AutoWatch.rule_key)
+            rule_config=self.config.get_config_dict(FormatIssues007AutoWatch.rule_key),
         )
         issues_007.run()

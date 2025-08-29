@@ -9,15 +9,17 @@ from jiruff.commands.sync import SyncCommand
 
 
 def add_command(
-        command: Type[BaseCommandHandler],
-        subparsers: argparse._SubParsersAction,
+    command: Type[BaseCommandHandler],
+    subparsers: argparse._SubParsersAction,
 ) -> None:
     parser = subparsers.add_parser(
-        name=command.command_name,
-        help=command.command_description
+        name=command.command_name, help=command.command_description
     )
     parser.add_argument(
-        "-c", "--config", required=False, help="TOML configuration file",
+        "-c",
+        "--config",
+        required=False,
+        help="TOML configuration file",
     )
     parser.set_defaults(func=command())
 
@@ -26,9 +28,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="jiruff: linter for your GitLab and Jira"
     )
-    parser.add_argument(
-        "-V", "--verbose", help="Verbose output", action="store_true"
-    )
+    parser.add_argument("-V", "--verbose", help="Verbose output", action="store_true")
 
     subparsers = parser.add_subparsers(
         title="Commands", dest="command", required=True, help="Available commands"
@@ -37,7 +37,6 @@ def main() -> None:
     add_command(FormatCommand, subparsers)
     add_command(SyncCommand, subparsers)
 
-
     # Parse arguments and dispatch
     args = parser.parse_args()
 
@@ -45,16 +44,17 @@ def main() -> None:
 
     if args.verbose:
         level = logging.DEBUG
+        logging_format = "%(levelname)s: %(asctime)s - %(message)s - [%(name)s]"
     else:
         level = logging.INFO
+        logging_format = "%(message)s"
 
     logging.basicConfig(
         level=level,
-        format="%(levelname)s: %(asctime)s - %(message)s - [%(name)s]",
+        format=logging_format,
         stream=sys.stdout,
     )
     logging.getLogger("keyring.backend").setLevel(logging.WARNING)
-
 
     args.func(args)
 

@@ -36,7 +36,7 @@ class SyncCommand(BaseCommandHandler):
         :param kwargs: Keyword arguments.
         :return: Result of the command execution.
         """
-        logger.debug('Starting sync command')
+        logger.debug("Starting sync command")
         self._load_config(args)
         self._init_jira()
 
@@ -46,7 +46,7 @@ class SyncCommand(BaseCommandHandler):
         self.download_updated_issues()
 
     def download_timesheets(self):
-        logger.info(f'Downloading {self.config.company} timesheets')
+        logger.info(f"Downloading {self.config.company} timesheets")
 
         local_state = load_local_state()
         start_id = local_state.last_downloaded_timesheet_entry_id
@@ -54,16 +54,21 @@ class SyncCommand(BaseCommandHandler):
         while True:
             ids = [str(i) for i in range(start_id, start_id + TIMESHEET_BATCH_SIZE)]
             timesheets_json = self.jira.get_json(
-                path="/worklog/list", data={"ids": ids})
+                path="/worklog/list", data={"ids": ids}
+            )
 
             if len(timesheets_json) == 0 and start_id > LEAST_TIMESHEET_ID:
                 logger.debug(f"Starting {start_id} timesheet list is empty.")
                 break
 
             for timesheet in timesheets_json:
-                timesheet_id = int(timesheet['id'])
-                file_path = (LOCAL_TIMESHEET_DIR / self.config.company /
-                             str(timesheet_id // 1000) / f"{timesheet_id}.json")
+                timesheet_id = int(timesheet["id"])
+                file_path = (
+                    LOCAL_TIMESHEET_DIR
+                    / self.config.company
+                    / str(timesheet_id // 1000)
+                    / f"{timesheet_id}.json"
+                )
                 if not file_path.parent.exists():
                     file_path.parent.mkdir(parents=True)
                 file_path.write_bytes(orjson.dumps(timesheet))
@@ -74,11 +79,11 @@ class SyncCommand(BaseCommandHandler):
         save_local_state(local_state)
 
     def download_new_issues(self):
-        logger.info(f'Downloading {self.config.company} issues')
+        logger.info(f"Downloading {self.config.company} issues")
 
         latest_issue = self.jira.get_all_issues_by_jql(
-            jql="created < now(\"-10000d\") order by created DESC",
-            num_results=1)
+            jql='created < now("-10000d") order by created DESC', num_results=1
+        )
         max_issue_id = int(latest_issue[0].id)
 
         local_state = load_local_state()
@@ -86,49 +91,57 @@ class SyncCommand(BaseCommandHandler):
             logger.info("No new issues")
             return
 
-        for issue_id in range(local_state.last_downloaded_issue_entry_id + 1, max_issue_id + 1):
-            self.download_issue(issue_id)
+        for issue_id in range(
+            local_state.last_downloaded_issue_entry_id + 1, max_issue_id + 1
+        ):
+            self.download_issue(issue_id, update_local_state=False)
 
-    def download_issue(self, issue_id: int, force=False):
+    def download_issue(self, issue_id: int, force=False, update_local_state=True):
         issue_path = LOCAL_ISSUES_DIR / self.config.company / f"{issue_id}.json"
         if not issue_path.parent.exists():
             issue_path.parent.mkdir(parents=True)
         if issue_path.exists() and not force:
             return
 
-        logger.debug(f'Downloading issue {issue_id}')
+        logger.debug(f"Start downloading issue [{issue_id}]")
         issue_json = self.jira.get_full_issue_json(issue_id)
 
         if issue_json:
-            logger.info(f"Issue is downloaded: {issue_json['id']}")
+            logger.info(
+                f"Issue is downloaded: {issue_json['key']}. {issue_json['fields']['summary']}"
+            )
             issue_path.write_bytes(orjson.dumps(issue_json))
 
             local_state = load_local_state()
             if issue_id > local_state.last_downloaded_issue_entry_id:
                 local_state.last_downloaded_issue_entry_id = issue_id
-            updated_at = datetime.fromisoformat(issue_json['fields']['updated'])
-            if isinstance(local_state.last_updated_issue_at,
-                          str) or local_state.last_updated_issue_at < updated_at:
-                local_state.last_updated_issue_at = updated_at
-            save_local_state(local_state)
+            if update_local_state:
+                updated_at = datetime.fromisoformat(issue_json["fields"]["updated"])
+                if (
+                    isinstance(local_state.last_updated_issue_at, str)
+                    or local_state.last_updated_issue_at < updated_at
+                ):
+                    local_state.last_updated_issue_at = updated_at
+                save_local_state(local_state)
 
     def check_downloads(self):
-        logger.debug(f'Checking {self.config.company} downloads')
-        for timesheet_path in (LOCAL_TIMESHEET_DIR / self.config.company).rglob("**/*.json"):
+        logger.debug(f"Checking {self.config.company} downloads")
+        for timesheet_path in (LOCAL_TIMESHEET_DIR / self.config.company).rglob(
+            "**/*.json"
+        ):
             timesheet_json = orjson.loads(timesheet_path.read_bytes())
             issue_id = int(timesheet_json["issueId"])
             self.download_issue(issue_id, force=False)
 
     def download_updated_issues(self):
-        logger.info(f'Downloading {self.config.company} updated issues')
+        logger.info(f"Downloading {self.config.company} updated issues")
         local_state = load_local_state()
         since = local_state.last_updated_issue_at
         if isinstance(since, datetime):
             since = since - timedelta(minutes=1)
             since = since.strftime("%Y-%m-%d %H:%M")
-        updated_jql = f"updated > \"{since}\" order by updated desc"
+        updated_jql = f'updated > "{since}" order by updated desc'
         for issue in self.jira.get_all_issues_by_jql(updated_jql, num_results=0):
             issue_id = int(issue.id)
-            logger.info(f"update issue: {issue_id}")
             self.download_issue(issue_id, force=True)
-        logger.info(f'Finished downloading {self.config.company} updated issues')
+        logger.info(f"Finished downloading {self.config.company} updated issues")

@@ -12,19 +12,24 @@ logger = logging.getLogger(__name__)
 class FormatIssues001Config(BaseModel):
     updated_history_depth: str = Field(
         default="-10d",
-        description="Depth of the updated history to consider for version propagation.")
+        description="Depth of the updated history to consider for version propagation.",
+    )
     notify: bool = Field(
         default=False,
-        description="Whether to notify users about the changes made during version propagation."
+        description="Whether to notify users about the changes made during version propagation.",
     )
 
 
 class FormatIssues001VersionPropagation:
     rule_key: Literal["issues-001"] = "issues-001"
 
-    def __init__(self, jira: JiraService, rule_config: dict[str, str] | None = None) -> None:
+    def __init__(
+        self, jira: JiraService, rule_config: dict[str, str] | None = None
+    ) -> None:
         self.jira = jira
-        rule_config_dict: dict[str, str] = rule_config if rule_config is not None else {}
+        rule_config_dict: dict[str, str] = (
+            rule_config if rule_config is not None else {}
+        )
         self.rule_config = FormatIssues001Config(**rule_config_dict)
 
     def run(self) -> None:

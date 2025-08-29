@@ -27,7 +27,8 @@ class Config(BaseSettings):
 
     notify: bool = Field(
         default=False,
-        description="Whether to notify users about changes made during formatting.")
+        description="Whether to notify users about changes made during formatting.",
+    )
 
     raw_config: dict = Field(default_factory=dict)
 

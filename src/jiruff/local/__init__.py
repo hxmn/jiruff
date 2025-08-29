@@ -20,5 +20,6 @@ def load_local_state() -> LocalState:
 
     return LocalState.model_validate_json(LOCAL_STATE_FILE.read_bytes())
 
+
 def save_local_state(state: LocalState):
     LOCAL_STATE_FILE.write_text(state.model_dump_json())

@@ -40,7 +40,8 @@ class CloudJiraService(JiraService):
     def get_full_issue_json(self, issue_id: int) -> dict | None:
         try:
             return self.jira.issue(
-                id=str(issue_id), fields="*all", properties="*all").raw
+                id=str(issue_id), fields="*all", properties="*all"
+            ).raw
         except JIRAError:
             return None
 
