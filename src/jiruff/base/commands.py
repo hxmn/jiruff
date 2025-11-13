@@ -2,10 +2,11 @@ import abc
 from argparse import Namespace
 from pathlib import Path
 
-from jiruff.base.services import JiraService
+from jiruff.base.services.cloud_jira import JiraService
 from jiruff.config import Config
 from jiruff.config import load_config
-from jiruff.services.jira import CloudJiraService
+from jiruff.services.cloud_jira import CloudJiraService
+from jiruff.services.local_jira import LocalJiraService
 
 
 class BaseCommandHandler(abc.ABC):
@@ -20,6 +21,7 @@ class BaseCommandHandler(abc.ABC):
         super().__init__()
         self.config: Config | None = None
         self.jira: JiraService | None = None
+        self.local_jira: LocalJiraService | None = None
 
     def _load_config(self, args: Namespace) -> None:
         """
@@ -47,6 +49,11 @@ class BaseCommandHandler(abc.ABC):
             token=self.config.jira_token,
         )
         self.jira = jira_service
+
+    def _init_local_jira(self):
+        self.local_jira = LocalJiraService(
+            local_dir_path=Path.home() / ".jiruff/issues" / self.config.company,
+        )
 
     @abc.abstractmethod
     def __call__(self, *args, **kwargs):

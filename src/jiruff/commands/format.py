@@ -5,6 +5,8 @@ from jiruff.base.commands import BaseCommandHandler
 from jiruff.rules.format.issues_001_versions_propagation import (
     FormatIssues001VersionPropagation,
 )
+from jiruff.rules.format.issues_002_child_parent_alignment_version import \
+    FormatIssues002ChildParentAlignmentVersion
 from jiruff.rules.format.issues_007_auto_watch import FormatIssues007AutoWatch
 
 
@@ -38,6 +40,14 @@ class FormatCommand(BaseCommandHandler):
             ),
         )
         issues_001.run()
+
+        # issues_002 = FormatIssues002ChildParentAlignmentVersion(
+        #     jira=self.jira,
+        #     rule_config=self.config.get_config_dict(
+        #         FormatIssues002ChildParentAlignmentVersion.rule_key
+        #     )
+        # )
+        # issues_002.run()
 
         issues_007 = FormatIssues007AutoWatch(
             jira=self.jira,

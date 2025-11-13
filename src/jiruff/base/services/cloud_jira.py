@@ -1,6 +1,5 @@
 import abc
-
-from jira import JIRA
+from typing import Callable
 
 
 class JiraService(abc.ABC):
@@ -26,4 +25,8 @@ class JiraService(abc.ABC):
 
     @abc.abstractmethod
     def add_watcher(self, issue_id: str, watcher_id: str):
+        pass
+
+    @abc.abstractmethod
+    def get_all_issues(self, filter_func: Callable[[dict], bool]):
         pass

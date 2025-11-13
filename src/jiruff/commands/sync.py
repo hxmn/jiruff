@@ -52,6 +52,7 @@ class SyncCommand(BaseCommandHandler):
         start_id = local_state.last_downloaded_timesheet_entry_id
 
         while True:
+            logger.debug(f"Downloading timesheets starting from ID {start_id}")
             ids = [str(i) for i in range(start_id, start_id + TIMESHEET_BATCH_SIZE)]
             timesheets_json = self.jira.get_json(
                 path="/worklog/list", data={"ids": ids}
@@ -60,6 +61,10 @@ class SyncCommand(BaseCommandHandler):
             if len(timesheets_json) == 0 and start_id > LEAST_TIMESHEET_ID:
                 logger.debug(f"Starting {start_id} timesheet list is empty.")
                 break
+
+            if len(timesheets_json) == 0 and start_id <= LEAST_TIMESHEET_ID:
+                start_id += TIMESHEET_BATCH_SIZE
+                continue
 
             for timesheet in timesheets_json:
                 timesheet_id = int(timesheet["id"])

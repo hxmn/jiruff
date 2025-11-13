@@ -5,6 +5,7 @@ from typing import Type
 from jiruff.base.commands import BaseCommandHandler
 from jiruff.commands.check import CheckCommand
 from jiruff.commands.format import FormatCommand
+from jiruff.commands.freeze import FreezeCommand
 from jiruff.commands.sync import SyncCommand
 
 
@@ -36,6 +37,7 @@ def main() -> None:
     add_command(CheckCommand, subparsers)
     add_command(FormatCommand, subparsers)
     add_command(SyncCommand, subparsers)
+    add_command(FreezeCommand, subparsers)
 
     # Parse arguments and dispatch
     args = parser.parse_args()

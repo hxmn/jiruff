@@ -1,10 +1,11 @@
 import json
 import logging
+from typing import Callable
 
 from jira import JIRA
 from jira import JIRAError
 
-from jiruff.base.services import JiraService
+from jiruff.base.services.cloud_jira import JiraService
 
 logger = logging.getLogger(__name__)
 
@@ -50,3 +51,8 @@ class CloudJiraService(JiraService):
         url = self.jira._get_url("issue/" + issue_id + "/watchers")
         # noinspection PyProtectedMember
         self.jira._session.post(url, data=json.dumps(watcher_id))
+
+    def get_all_issues(self, filter_func: Callable[[dict], bool]):
+        raise NotImplementedError()
+
+
