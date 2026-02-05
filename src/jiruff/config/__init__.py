@@ -7,6 +7,8 @@ from pathlib import Path
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
+from jiruff.services.cloud_jira import CloudJiraService
+
 logger = logging.getLogger(__name__)
 
 LOCAL_CONFIG_FILE = Path.home() / ".config/jiruff/config.toml"
@@ -114,10 +116,25 @@ def append_jira_auth_info(config: Config):
             service_name=f"{config.company.lower()}-jira", username=config.jira_user
         )
         if jira_token_keyring is not None:
-            config.jira_token = jira_token_keyring
-            logger.debug(f"Loaded JIRA token from keyring for user {config.jira_user}.")
-            return
-        else:
+            from jiruff.base.services.cloud_jira import JiraService
+            jira = CloudJiraService()
+            from jira import JIRAError
+            try:
+                jira.auth(url=config.jira_url,
+                          username=config.jira_user,
+                          token=jira_token_keyring)
+                print(jira.jira.myself())
+            except JIRAError as je:
+                if je.status_code == 401:
+                    jira_token_keyring = None
+                    logger.info("Old JIRA token is not valid for auth. Need to ask new one")
+                pass
+            if jira_token_keyring:
+                config.jira_token = jira_token_keyring
+                logger.debug(f"Loaded JIRA token from keyring for user {config.jira_user}.")
+                return
+
+        if jira_token_keyring is None:
             # ask user for jira token
             config.jira_token = getpass(
                 f"Enter JIRA token for {config.jira_user}: "
