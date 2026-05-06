@@ -55,7 +55,7 @@ class SyncCommand(BaseCommandHandler):
             logger.debug(f"Downloading timesheets starting from ID {start_id}")
             ids = [str(i) for i in range(start_id, start_id + TIMESHEET_BATCH_SIZE)]
             timesheets_json = self.jira.get_json(
-                path="/worklog/list", data={"ids": ids}
+                path="worklog/list", data={"ids": ids}
             )
 
             if len(timesheets_json) == 0 and start_id > LEAST_TIMESHEET_ID:
@@ -87,7 +87,7 @@ class SyncCommand(BaseCommandHandler):
         logger.info(f"Downloading {self.config.company} issues")
 
         latest_issue = self.jira.get_all_issues_by_jql(
-            jql='created < now("-10000d") order by created DESC', num_results=1
+            jql="created <= now() order by created DESC", num_results=1
         )
         max_issue_id = int(latest_issue[0].id)
 

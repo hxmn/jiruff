@@ -112,35 +112,63 @@ def append_jira_auth_info(config: Config):
                 encoding="utf8",
             )
 
-        jira_token_keyring = keyring.get_password(
-            service_name=f"{config.company.lower()}-jira", username=config.jira_user
-        )
-        if jira_token_keyring is not None:
-            from jiruff.base.services.cloud_jira import JiraService
-            jira = CloudJiraService()
-            from jira import JIRAError
+        from jira import JIRAError
+
+        def _try_auth(user: str, token: str) -> bool:
             try:
-                jira.auth(url=config.jira_url,
-                          username=config.jira_user,
-                          token=jira_token_keyring)
+                jira = CloudJiraService()
+                jira.auth(url=config.jira_url, username=user, token=token)
                 print(jira.jira.myself())
+                return True
             except JIRAError as je:
                 if je.status_code == 401:
-                    jira_token_keyring = None
-                    logger.info("Old JIRA token is not valid for auth. Need to ask new one")
-                pass
-            if jira_token_keyring:
-                config.jira_token = jira_token_keyring
-                logger.debug(f"Loaded JIRA token from keyring for user {config.jira_user}.")
-                return
+                    return False
+                raise
+
+        service_name = f"{config.company.lower()}-jira"
+        jira_token_keyring = keyring.get_password(
+            service_name=service_name, username=config.jira_user
+        )
+        if jira_token_keyring is not None and not _try_auth(config.jira_user, jira_token_keyring):
+            # Auth failed — most often because the JIRA username changed. Ask for
+            # username first, then retry with whatever token we have under it.
+            logger.info("JIRA auth failed (401). Username may have changed.")
+            new_user = input(
+                f"Enter JIRA user for {config.company} [{config.jira_user}]: "
+            ).strip()
+            if new_user and new_user != config.jira_user:
+                config.jira_user = new_user
+                LOCAL_CONFIG_FILE.write_text(
+                    data=f"{config.company.lower()}_jira_user = '{config.jira_user}'\n",
+                    encoding="utf8",
+                )
+                retry_token = keyring.get_password(
+                    service_name=service_name, username=config.jira_user
+                ) or jira_token_keyring
+                jira_token_keyring = retry_token if _try_auth(config.jira_user, retry_token) else None
+            else:
+                jira_token_keyring = None
+
+        if jira_token_keyring:
+            config.jira_token = jira_token_keyring
+            logger.debug(f"Loaded JIRA token from keyring for user {config.jira_user}.")
+            return
 
         if jira_token_keyring is None:
             # ask user for jira token
             config.jira_token = getpass(
                 f"Enter JIRA token for {config.jira_user}: "
             ).strip()
+            # Drop any pre-existing entry first; on macOS, set_password on an
+            # item owned by a different binary's ACL fails with -25244.
+            try:
+                keyring.delete_password(
+                    service_name=service_name, username=config.jira_user
+                )
+            except keyring.errors.PasswordDeleteError:
+                pass
             keyring.set_password(
-                service_name=f"{config.company.lower()}-jira",
+                service_name=service_name,
                 username=config.jira_user,
                 password=config.jira_token,
             )
